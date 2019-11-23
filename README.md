@@ -72,9 +72,35 @@ export HYDRA_PROXY=socks4://proxy.domain.com:8080
 export HYDRA_PROXY=socks5://proxy.domain.com:8080
 ```
 
+## OpenVPN
+
+Edit the configuration (`.opvn` file) and add the proxy information. Some examples:
+
+```console
+# Simple HTTP proxy
+http-proxy proxy.domain.com 8080
+
+# HTTP proxy with Basic authentication
+http-proxy proxy.domain.com 8080 stdin basic
+
+# HTTP proxy with NTLM authentication
+http-proxy proxy.domain.com 8080 stdin ntlm
+```
+
 ## pip (Python's package management)
 
 ```bash
 export HTTP_PROXY=http://proxy.domain.com:8080
 export HTTPS_PROXY=http://proxy.domain.com:8080
+```
+
+## wget
+
+```bash
+export http_proxy=http://username:password@proxy.domain.com:8080
+export https_proxy=http://username:password@proxy.domain.com:8080
+export ftp_proxy=http://username:password@proxy.domain.com:8080
+
+# No proxy for these
+export no_proxy="domain1.com,domain2.com,domain3.com"
 ```
